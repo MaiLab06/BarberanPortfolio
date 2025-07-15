@@ -70,9 +70,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 40px;
+  margin: auto;
+  padding: 20px 30px;
+  flex-wrap: wrap;
 }
+
 
 .logo {
   font-size: 1.5rem;
@@ -95,6 +97,14 @@ nav {
 
 .nav-links a:hover {
   color: #00adb5;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Hero Section */
@@ -360,30 +370,38 @@ section {
   margin: auto;
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  /* NAVBAR */
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
+  .menu-toggle {
+    display: block;
   }
 
   .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
-    gap: 15px;
-    margin-top: 10px;
+    padding: 10px 0;
+    margin-top: 15px;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 
   .nav-links li {
+    text-align: center;
     width: 100%;
   }
 
-  .nav-links a {
+  .nav-links li a {
     display: block;
-    width: 100%;
     padding: 10px 0;
-    border-bottom: 1px solid #333;
+    color: #fff;
+    border-top: 1px solid #333;
+  }
+
+  .nav-links li a:hover {
+    background-color: #333;
   }
 
   /* HERO SECTION */
