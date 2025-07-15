@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Smooth scroll for anchor links
   $('a[href^="#"]').on('click', function (e) {
     e.preventDefault();
-    const target = $($(this).attr('href'));
+    let target = $($(this).attr('href'));
     if (target.length) {
       $('html, body').animate({
         scrollTop: target.offset().top
@@ -11,14 +11,14 @@ $(document).ready(function () {
   });
 
   // Fade-in on scroll using Intersection Observer-like logic
-  const $sections = $('section');
+  let $sections = $('section');
 
   function revealOnScroll() {
-    const scrollTop = $(window).scrollTop();
-    const windowHeight = $(window).height();
+    let scrollTop = $(window).scrollTop();
+    let windowHeight = $(window).height();
 
     $sections.each(function () {
-      const offsetTop = $(this).offset().top;
+      let offsetTop = $(this).offset().top;
 
       if (scrollTop + windowHeight > offsetTop + 100) {
         $(this).addClass('visible');
@@ -31,9 +31,16 @@ $(document).ready(function () {
   $(window).on('scroll', revealOnScroll);
 });
 
-  $(window).on("load", function () {
+$(window).on("load", function () {
     // Wait for the progress animation to finish
     setTimeout(function () {
       $("#loader").fadeOut(600);
     }, 2200); // match or slightly exceed animation duration
+  });
+
+    //Hambuger Menu
+   $(document).ready(function () {
+    $("#menu-toggle").click(function () {
+      $("#nav-links").toggleClass("active");
+    });
   });
